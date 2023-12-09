@@ -1,10 +1,7 @@
 import discord
 
-from champions import randomize_champion
 from config import LEAGUE_OF_LEGENDS_VERSION
-from items import randomize_boots, randomize_legendary_items
-from runes import randomize_primary_rune, randomize_rune_tree
-from summoner_spells import randomize_summoner_spells
+from send_image import send_image
 
 
 def get_bot_password():
@@ -31,6 +28,18 @@ def run_discord_bot(
 
         if message.mention_everyone:
             return
+
+        if message.content.startswith(RUN_COMMAND_KEYWORD):
+            return await send_image(
+                message,
+                LEAGUE_OF_LEGENDS_VERSION,
+                legendary_items,
+                boots_items,
+                champions,
+                summoner_spells,
+                primary_runes,
+                rune_trees,
+            )
 
         if client.user.mentioned_in(message):
             embed = discord.Embed(title="Oxygen's Bot Help")
