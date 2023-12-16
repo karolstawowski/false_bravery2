@@ -1,10 +1,10 @@
-from config import LEAGUE_OF_LEGENDS_VERSION
-from items import get_items_from_api
-from ssl import verify_ssl_certificate
 from champions import get_champions_from_api
-from runes import get_runes_from_api
-from summoner_spells import get_summoner_spells_from_api
+from config import LEAGUE_OF_LEGENDS_VERSION
 from discord_bot import run_discord_bot
+from items import get_items_from_api
+from runes import get_runes_from_api
+from ssl_handling import verify_ssl_certificate
+from summoner_spells import get_summoner_spells_from_api
 
 verify_ssl_certificate()
 
